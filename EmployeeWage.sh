@@ -1,43 +1,42 @@
 
-#Calculating wages For Month
+#Calculate Wages till a condition of total working hours or Days is reached for a Month
 
-#!/bin/bash
-#attendence check and wage calculation correspondingly
-attendence=$(( RANDOM % 2 ))
+#!/bin/bash -x
 wage_per_hr=20
-no_of_days_per_month=20
-case $attendence in 
+max_hrs=100
+max_days=20
+total_working_hrs=0
+total_working_days=0
+
+emp_attendance=$(( RANDOM % 2 ))
+case $emp_attendance in
 0)
-echo "Employee is Present"
-  for ((day=1; day<=no_of_days_per_month;day++))
-   do
-   attended_type=$((RANDOM % 2))
-    case $attended_type in
-     0)
-        echo "Employee is full time present"
-        no_of_hrs_per_day=8
-        echo "Day "$day" FullTime"
-    	FullTime=$(($FullTime+1))
-        wage_per_day=$(( wage_per_hr * no_of_hrs_per_day ))
-        echo "The Wage of the employee for the day is $wage_per_day"
-        wage_per_month=$(( wage_per_day * no_of_days_per_month ))
-        ;;
-    1)
-        echo "Employee is Part time present"
-        no_of_hrs_per_day=4
-        echo "Day "$day" PartTime"
-        PartTime=$(($PartTime+1))
-        wage_per_day=$(( wage_per_hr * no_of_hrs_per_day ))
-        echo "The Wage of the employee for the Day is $wage_per_day"
-        wage_per_month1=$(( wage_per_day * no_of_days_per_month ))
-        ;;
-    esac
-done
-total_Salary=$(($wage_per_month1+$wage_per_month))
-echo "The Wage of the employee for the Month is $total_Salary"
+ echo "Employee is Present"
+    while(( total_working_hrs < max_hrs && total_working_days < max_days ))
+     do
+      (( total_working_days++ ))
+      attendance=$(( RANDOM % 2 ))
+      case $attendance in
+        0)
+            echo "Employee is Full Time present"
+            no_of_hrs_per_day=8
+            (( total_working_hrs += no_of_hrs_per_day ))
+            total_salary=$(( total_working_hrs * wage_per_hr ))
+            echo "Total salary is $total_salary"
+            ;;
+        1)
+            echo "Employee is Part Time present"
+            no_of_hrs_per_day=4
+            (( total_working_hrs += no_of_hrs_per_day ))
+            total_salary=$(( total_working_hrs * wage_per_hr ))
+            echo "Total salary is $total_salary"
+            ;;
+        esac
+     done
 ;;
 1)
-echo "Employee is Absent"
-no_of_hrs_per_day=0
-;;
-esac
+    echo "Employee is Absent"
+    no_of_hrs_per_day=0
+    ;;
+    esac
+
