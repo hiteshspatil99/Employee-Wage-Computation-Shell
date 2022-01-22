@@ -1,4 +1,13 @@
-#Add Part time Employee & Wage
+
+  
+'''
+@Author: Hitesh Patil
+@Date: 09-01-2022 13:05:46
+@Last Modified by: Hitesh Patil
+@Last Modified time: 09-01-2022 23:50:56
+@Title : Part_Time_Employee_Addition
+'''
+
 
 #!/bin/bash
 #Attendence check and Wage calculation with respect to
