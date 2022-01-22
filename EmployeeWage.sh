@@ -1,4 +1,11 @@
-#Solving using Case Statement
+'''
+@Author: Hitesh Patil
+@Date: 10-01-2022 13:05:46
+@Last Modified by: Hitesh Patil
+@Last Modified time: 10-01-2022 15:50:56
+@Title : Solving using Case Statement
+'''
+#
 
 #!/bin/bash
 #attendence check and wage calculation Correspondingly
