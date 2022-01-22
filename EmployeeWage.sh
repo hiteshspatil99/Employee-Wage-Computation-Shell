@@ -1,4 +1,10 @@
-#Calculation of daily Employee wage
+'''
+@Author: Hitesh Patil
+@Date: 09-01-2022 12:05:46
+@Last Modified by: Hitesh Patil
+@Last Modified time: 09-01-2022 23:40:00
+@Title : Calculation of daily Employee wage
+'''
 
 #!/bin/bash
 attendence=$(( RANDOM % 2 ))
